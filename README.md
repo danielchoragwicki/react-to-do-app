@@ -1,7 +1,9 @@
 
 # Simple React To-do List
 
-<img src="public/preview.png" alt=""/>
+<p align="center">
+<img src="public/preview.png"/>
+</p>
 
 I built this app with Egghead tutorial: [Build Your First Production Quality React App](https://egghead.io/courses/build-your-first-production-quality-react-app)
 
