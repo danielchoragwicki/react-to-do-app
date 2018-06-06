@@ -11,8 +11,9 @@ I built this app with Egghead tutorial: [Build Your First Production Quality Rea
  - Priorities to choose
  - Sorting by priority
 
-Install JSON server node module  
+Install node modules and JSON server globally  
 ```
+npm install
 npm i -g json-server
 ```  
 Run server on port `localhost:8080`
