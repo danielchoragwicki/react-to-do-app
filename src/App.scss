@@ -1,0 +1,244 @@
+$main-color: #00B9A0;
+$dark-main: #008984;
+$white: #FFFFFF;
+$black: #000000;
+$grey: #E0E0E0;
+$light-grey: #F9F9F9;
+$text: #222222;
+$border-radius: 8px;
+
+* {
+  font-family: 'Hind', sans-serif;
+  box-sizing: border-box;
+}
+::selection {
+  background: $main-color;
+}
+::-webkit-input-placeholder {
+  color: $grey;
+}
+::-moz-placeholder {
+  color: $grey;
+}
+:-ms-input-placeholder {
+  color: $grey;
+}
+:-moz-placeholder {
+  color: $grey;
+}
+
+body {
+  background-image: linear-gradient(to right top, #053037, #005a60, #008984, #00b9a0, #12ebb2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.app {
+  background: $white;
+  width: 500px;
+  margin: 20vh 15px 20vh 15px;
+  padding: 45px 35px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.2);
+  border-radius: $border-radius;
+  position: relative;
+  @media (max-width: 530px) {
+    max-width: 500px;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  &__item {
+    margin-right: 30px;
+    color: $grey;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all .1s;
+    &:hover, &:focus {
+      color: $text;
+      outline: 0;
+    }
+    &.active {
+      color: $main-color;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.add {
+    margin-bottom: 30px;
+    padding: 0 25px;
+    color: $text;
+    &__input {
+      width: 100%;
+      padding: 5px 20px;
+      font-size: 18px;
+      border: 0;
+      line-height: 1;
+      border-bottom: 2px solid $light-grey;
+      color: $text;
+      transition: all .2s ease-in-out;
+      &:focus, &:active {
+        border-color: $main-color;
+        outline: 0;
+      }
+    }
+  &__priority {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &__circle {
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    background: $grey;
+    display: block;
+    transition: all .15s ease;
+    transform: scale(0);
+  }
+  &__radio {
+    cursor: pointer;
+    margin: 0 8px 0 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid $grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--1 {
+      border-color: #12ebb2;
+      .add__circle {
+        background: #12ebb2;
+      }
+    }
+    &--2 {
+      border-color: $main-color;
+      .add__circle {
+        background: $main-color;
+      }
+    }
+    &--3 {
+      border-color: $dark-main;
+       .add__circle {
+        background: $dark-main;
+      }
+    }
+    input {
+      display: none;
+      &:checked + .add__circle {
+        transform: scale(1);
+      }
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.list {
+  margin-top: 5px;
+  padding: 0 20px;
+}
+
+.item {
+  padding: 5px 35px 5px 20px;
+  margin-bottom: 20px;
+  transition: all .1s linear;
+  color: $text;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &__delete {
+    border: 0;
+    background: none;
+    padding: 0;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    color: #FF5A5A;
+    transform: scale(0);
+    transition: all .2s ease-in-out;
+    outline: 0;
+  }
+  &:hover {
+    .item__delete {
+      transform: scale(1);
+    }
+  }
+  &.done {
+    opacity: .3;
+  }
+  .fa-check {
+    transition: all .15s ease-in-out;
+    transform: scale(0);
+  }
+  &__checkbox {
+    border: 2px solid $grey;
+    color: $grey;
+    border-radius: 50%;
+    height: 32px;
+    display: block;
+    flex: 0 0 32px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      display: none;
+      &:checked {
+         & + .fa-check {
+          transform: scale(1);
+        }
+      }
+    }
+    &--1 {
+      color: #12ebb2;
+      border-color: #12ebb2;
+    }
+    &--2 {
+      color: $main-color;
+      border-color: $main-color;
+    }
+    &--3 {
+      color: $dark-main;
+      border-color: $dark-main;
+    }
+  }
+}
+
+.info {
+  font-size: 16px;
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  z-index: 999;
+  &__error {
+    color: #FF5A5A;
+    display: block;
+  }
+  &__succes {
+    display: block;
+    color: #005a60;
+  }
+}
